@@ -29,8 +29,8 @@ namespace ZM.UGUIPro
         [SerializeField] private VertexColorExtend _vertexColorExtend = new VertexColorExtend(); // 文本顶点颜色
         [SerializeField] private TextShadowExtend _textShadowExtend = new TextShadowExtend(); // 文本阴影
         [SerializeField] private TextOutlineExtend _textOutlineExtend = new TextOutlineExtend(); // 文本描边
-        [SerializeField] private LocalizationTextExtend _localizationTextExtend = new LocalizationTextExtend(); // 本地多语言文本
         [SerializeField] private TextEffectExtend _textEffectExtend = new TextEffectExtend(); // 文本特效
+        [SerializeField] private LocalizationTextExtend _localizationTextExtend = new LocalizationTextExtend(); // 本地多语言文本
 
         /// <summary>
         /// 文本间距
@@ -53,14 +53,14 @@ namespace ZM.UGUIPro
         public TextOutlineExtend TextOutlineExtend => _textOutlineExtend;
 
         /// <summary>
-        /// 本地多语言文本
-        /// </summary>
-        public LocalizationTextExtend LocalizationTextExtend => _localizationTextExtend;
-
-        /// <summary>
         /// 文本特效
         /// </summary>
         public TextEffectExtend TextEffectExtend => _textEffectExtend;
+        
+        /// <summary>
+        /// 本地多语言文本
+        /// </summary>
+        public LocalizationTextExtend LocalizationTextExtend => _localizationTextExtend;
         
         #endregion
 
@@ -68,7 +68,7 @@ namespace ZM.UGUIPro
         {
             base.Awake();
             if (LocalizationTextExtend.UseLocalization)
-                LocalizationTextExtend.Initializa(this);
+                LocalizationTextExtend.Initialize(this);
             _localizationTextExtend.UpdateFont();
             if(LocalizationTextExtend.ChangeFont)
                 LocalizationTextExtend.InitFontListener(this);
