@@ -7,14 +7,14 @@ namespace ZM.UGUIPro
     [System.Serializable]
     public class TextSpacingExtend
     {
-        [SerializeField] private bool _userTextSpacing;
+        [SerializeField] private bool _useTextSpacing;
         /// <summary>
         /// 用户自定义的文本间距
         /// </summary>
-        public bool UserTextSpacing
+        public bool UseTextSpacing
         {
-            get => _userTextSpacing;
-            set => _userTextSpacing = value;
+            get => _useTextSpacing;
+            set => _useTextSpacing = value;
         }
         
         [SerializeField]
@@ -35,7 +35,7 @@ namespace ZM.UGUIPro
         /// <param name="toFill"> Mesh </param>
         public void PopulateMesh(VertexHelper toFill)
         {
-            if (UserTextSpacing)
+            if (UseTextSpacing)
             {
                 if(toFill.currentVertCount == 0)
                 {

@@ -23,7 +23,7 @@ namespace ZM.UGUIPro
         
         #region 变量属性
         
-        [SerializeField] private bool _userVertexColor;
+        [SerializeField] private bool _useVertexColor;
         [SerializeField] private ColorFilterType _vertexColorFilter = ColorFilterType.Additive;
         [SerializeField] private Color _vertexTopLeft = Color.white;
         [SerializeField] private Color _vertexTopRight = Color.white;
@@ -34,10 +34,10 @@ namespace ZM.UGUIPro
         /// <summary>
         /// 是否使用顶点颜色
         /// </summary>
-        public bool UserVertexColor
+        public bool UseVertexColor
         {
-            get => _userVertexColor;
-            set => _userVertexColor = value;
+            get => _useVertexColor;
+            set => _useVertexColor = value;
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace ZM.UGUIPro
         public void PopulateMesh(VertexHelper toFill, RectTransform rectTransform, Color color)
         {
             // 检查是否使用自定义顶点颜色
-            if (UserVertexColor)
+            if (UseVertexColor)
             {
                 // 获取矩形的最小和最大位置，用于颜色映射
                 Vector2 min = rectTransform.pivot;

@@ -74,14 +74,83 @@ namespace ZM.UGUIPro
                 LocalizationTextExtend.InitFontListener(this);
         }
 
+        protected override void Start()
+        {
+            base.Start();
+            _localizationTextExtend.UpdateFont();
+            _localizationTextExtend.UpdateText();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            if (LocalizationTextExtend.UseLocalization)
+                _localizationTextExtend.Release();
+            
+            if(LocalizationTextExtend.ChangeFont)
+                _localizationTextExtend.RemoveFontListener();
+        }
+
+        protected override void OnPopulateMesh(VertexHelper toFill)
+        {
+            base.OnPopulateMesh(toFill);
+            if(_textSpacingExtend.UseTextSpacing)
+                _textSpacingExtend.PopulateMesh(toFill);
+            
+            if(_vertexColorExtend.UseVertexColor)
+                _vertexColorExtend.PopulateMesh(toFill, rectTransform, color);
+            
+            if(_textShadowExtend.UseShadow)
+                _textShadowExtend.PopulateMesh(toFill, rectTransform, color);
+            
+            if(_textOutlineExtend.UseOutline)
+                _textOutlineExtend.PopulateMesh(toFill);
+        }
+
         public void ModifyMesh(Mesh mesh)
         {
-            throw new System.NotImplementedException();
+            // 此方法用于实现对 Mesh 的自定义修改（在 IMeshModifier 接口中定义）。
         }
 
         public void ModifyMesh(VertexHelper verts)
         {
-            throw new System.NotImplementedException();
+            // 此方法用于实现对 Mesh 的自定义修改（在 IMeshModifier 接口中定义）。
         }
+
+        /// <summary>
+        /// 设置文本的透明度
+        /// </summary>
+        public void SetTextAlpha(float alpha)
+        {
+            if (_textEffectExtend.UseTextEffect && _textEffectExtend._gradientType != 0)
+            {
+                _textEffectExtend.SetAlpha(alpha);
+            }
+            else
+            {
+                Color32 color32 = color;
+                color32.a = (byte)(alpha * 255);
+                color = color32;
+            }
+        }
+        
+        /// <summary>
+        /// 设置文本描边颜色
+        /// </summary>
+        public void SetOutLineColor(Color32 color)
+        {
+            if(!_textEffectExtend.UseTextEffect) return;
+            _textEffectExtend.textEffect.SetOutLineColor(color);
+            _textEffectExtend.UseTextEffect = false;
+            _textEffectExtend.UseTextEffect = true;
+        }
+        
+#if UNITY_EDITOR
+        protected override void OnValidate()
+        {
+            // 编辑器模式下自动更新本地化和字体设置。
+            base.OnValidate();
+        }
+#endif
     }
 }

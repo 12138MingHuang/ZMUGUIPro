@@ -20,7 +20,7 @@ namespace ZM.UGUIPro
         [SerializeField] private Camera _camera; // 渲染时使用的摄像机
         [SerializeField, UnityEngine.Range(0, 1)] private float _alpha = 1; // 透明度，范围在0到1之间
         [SerializeField, UnityEngine.Range(0.1f, 0.9f)] private float _colorOffset = 0.5f; // 颜色偏移
-        [SerializeField] public TextEffect _textEffect; // 关联的文本特效组件
+        [SerializeField] public TextEffect textEffect; // 关联的文本特效组件
 
         /// <summary>
         /// 是否启用文本特效
@@ -43,8 +43,8 @@ namespace ZM.UGUIPro
         public void SaveSerializeData(TextPro textPro)
         {
             // 获取TextEffect组件，若不存在则自动添加
-            _textEffect = textPro.GetComponent<TextEffect>();
-            if (_textEffect == null)
+            textEffect = textPro.GetComponent<TextEffect>();
+            if (textEffect == null)
             {
                 int insid = textPro.GetInstanceID();
 
@@ -54,8 +54,8 @@ namespace ZM.UGUIPro
                 {
                     if (textProArray[i].GetInstanceID() == insid)
                     {
-                        _textEffect = textProArray[i].gameObject.AddComponent<TextEffect>();
-                        _textEffect.hideFlags = HideFlags.HideInInspector; // 隐藏特效组件
+                        textEffect = textProArray[i].gameObject.AddComponent<TextEffect>();
+                        textEffect.hideFlags = HideFlags.HideInInspector; // 隐藏特效组件
                         break;
                     }
                 }
@@ -75,6 +75,15 @@ namespace ZM.UGUIPro
                     _camera = Transform.FindObjectOfType<Camera>();
                 }
             }
+        }
+        
+        /// <summary>
+        /// 设置描边alpha
+        /// </summary>
+        /// <param name="alpha">透明度值</param>
+        public void SetAlpha(float alpha)
+        {
+            textEffect.SetAlpha(alpha);
         }
     }
 }

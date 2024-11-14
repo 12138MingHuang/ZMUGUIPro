@@ -158,7 +158,7 @@ namespace ZM.UGUIPro
             }
         }
 
-        public void SetAlpah(float setAlphaValue)
+        public void SetAlpha(float setAlphaValue)
         {
             this._alpha = setAlphaValue;
             byte alphaByte = (byte)(this._alpha * 255);

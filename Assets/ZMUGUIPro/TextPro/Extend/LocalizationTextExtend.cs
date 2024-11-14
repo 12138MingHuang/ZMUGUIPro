@@ -13,18 +13,27 @@ namespace ZM.UGUIPro
         private TextPro _textPro; // 用于处理 TextPro 类型文本
         private TextMeshPro _textMeshPro; // 用于处理 TextMeshPro 类型文本
         
+        /// <summary>
+        /// 是否启用本地化文本
+        /// </summary>
         public bool UseLocalization
         {
             get => _useLocalization;
             set => _useLocalization = value;
         }
 
+        /// <summary>
+        /// 是否允许更换字体
+        /// </summary>
         public bool ChangeFont
         {
             get => _changeFont;
             set => _changeFont = value;
         }
 
+        /// <summary>
+        /// 本地化文本的键值
+        /// </summary>
         public string Key
         {
             get => _key;
