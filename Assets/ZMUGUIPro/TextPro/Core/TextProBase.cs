@@ -20,6 +20,7 @@ using UnityEngine.UI;
 namespace ZM.UGUIPro
 {
     //IMeshModifier 是 Unity 中UnityEngine.UI的一个接口，用于修改 UI 元素的网格（mesh）。它通常用于自定义 UI 渲染行为，比如在显示文本时修改其顶点数据，实现特殊的视觉效果。
+    [System.Serializable]
     public class TextProBase : Text, IMeshModifier
     {
         #region 变量属性

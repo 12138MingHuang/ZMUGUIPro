@@ -17,7 +17,7 @@ namespace ZM.UGUIPro
         [SerializeField] private Color32 _middleColor = Color.white; // 中部颜色
         [SerializeField] private Color32 _bottomColor = Color.white; // 底部颜色
         [SerializeField] private Color32 _outLineColor = Color.yellow; // 描边颜色
-        [SerializeField] private Camera _camera; // 渲染时使用的摄像机
+        [SerializeField] private Camera m_Camera; // 渲染时使用的摄像机
         [SerializeField, UnityEngine.Range(0, 1)] private float _alpha = 1; // 透明度，范围在0到1之间
         [SerializeField, UnityEngine.Range(0.1f, 0.9f)] private float _colorOffset = 0.5f; // 颜色偏移
         [SerializeField] public TextEffect textEffect; // 关联的文本特效组件
@@ -62,17 +62,17 @@ namespace ZM.UGUIPro
             }
 
             // 初始化摄像机，优先查找带有 "MainCamera" 标签的对象
-            if (_camera == null)
+            if (m_Camera == null)
             {
                 GameObject mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
                 if (mainCamera != null)
                 {
-                    _camera = mainCamera.GetComponent<Camera>();
+                    m_Camera = mainCamera.GetComponent<Camera>();
                 }
                 else
                 {
                     // 若找不到主摄像机，则获取场景中的任意摄像机
-                    _camera = Transform.FindObjectOfType<Camera>();
+                    m_Camera = Transform.FindObjectOfType<Camera>();
                 }
             }
         }

@@ -46,7 +46,7 @@ namespace ZM.UGUIPro
         [SerializeField] [HideInInspector] private Color32 _middleColor = Color.white;
         [SerializeField] [HideInInspector] private Color32 _bottomColor = Color.white;
         [SerializeField] [HideInInspector] private Color32 _outLineColor = Color.black;
-        [SerializeField] [HideInInspector] private Camera _camera;
+        [SerializeField] [HideInInspector] private Camera m_Camera;
         [SerializeField, UnityEngine.Range(0, 1)] [HideInInspector] private float _alpha = 1;
         [UnityEngine.Range(0.1f, 0.9f)] [SerializeField] [HideInInspector] private float _colorOffset = 0.5f;
 
@@ -93,8 +93,8 @@ namespace ZM.UGUIPro
         }
         public void SetCamera(Camera camera)
         {
-            if (_camera == camera) return;
-            this._camera = camera;
+            if (m_Camera == camera) return;
+            this.m_Camera = camera;
         }
         public void SetGradientType(GradientType gradientType)
         {
