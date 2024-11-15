@@ -56,6 +56,7 @@ namespace ZM.UGUIPro
         protected override void OnDestroy()
         {
             base.OnDestroy();
+            m_LocalizationImage.Release();
         }
 
         /// <summary>
