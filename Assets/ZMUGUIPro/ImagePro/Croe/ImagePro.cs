@@ -11,6 +11,7 @@ namespace ZM.UGUIPro
     /// ImagePro 类继承自 ImageProBase，旨在进一步扩展图片的功能。
     /// </summary>
     [System.Serializable]
+    [DisallowMultipleComponent]
     public class ImagePro : ImageProBase
     {
         /// <summary>
