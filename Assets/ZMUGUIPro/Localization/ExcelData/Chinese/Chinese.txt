@@ -1,0 +1,14 @@
+﻿[
+  {
+    "key": "LoginButton",
+    "value": "登陆"
+  },
+  {
+    "key": "SettingButton",
+    "value": "设置"
+  },
+  {
+    "key": "RegisterButton",
+    "value": "注册"
+  }
+]

@@ -1,0 +1,14 @@
+﻿[
+  {
+    "key": "LoginButton",
+    "value": "Login"
+  },
+  {
+    "key": "SettingButton",
+    "value": "Setting"
+  },
+  {
+    "key": "RegisterButton",
+    "value": "Register Account"
+  }
+]
