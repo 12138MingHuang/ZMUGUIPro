@@ -15,7 +15,7 @@ public class ExcelToConfig
     /// <summary>
     /// 解析表名
     /// </summary>
-    private static List<string> mParseKeyList = new List<string>() { "Chinese", "English" };
+    private static List<string> mParseKeyList = new List<string>() { "Chinese", "English", "Thai" };
     /// <summary>
     /// Excel文件读取路径
     /// </summary>

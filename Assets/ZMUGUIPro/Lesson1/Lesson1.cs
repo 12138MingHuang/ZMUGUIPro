@@ -20,6 +20,9 @@ public class Lesson1 : MonoBehaviour
         // await LocalizationManager.Instance.SwitchLanguage(LanguageType.English);
         
         //5.多语言图片加载方式 ImageProBase
+        
+        //6.新增多语言配置
+        //先在翻译文档.xlsx中新增多语言配置，然后ExcelToConfig将mParseKeyList新增字符串字段，生成
     }
     
     private async void Update()
@@ -31,6 +34,10 @@ public class Lesson1 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             await LocalizationManager.Instance.SwitchLanguage(LanguageType.Chinese);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            await LocalizationManager.Instance.SwitchLanguage(LanguageType.Thai);
         }
     }
 }

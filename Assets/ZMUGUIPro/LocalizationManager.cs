@@ -13,6 +13,7 @@ namespace ZM.UGUIPro
         None = 0,
         English = 1,
         Chinese = 2,
+        Thai = 3
     }
 
     /// <summary>
@@ -23,6 +24,7 @@ namespace ZM.UGUIPro
         None = 0,
         English = 1,
         Chinese = 2,
+        Thai = 3
     }
     
     public class LocalizationManager
